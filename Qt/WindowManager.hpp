@@ -8,7 +8,11 @@
 
 #include <QApplication>
 #include <QLabel>
+#include "MainWindow.hpp"
+#include "CustomLabel.hpp"
 #include <string>
+#include <iostream>
+#include <vector>
 #include "Utils/Vector2i.hpp"
 
 class WindowManager {
@@ -24,14 +28,32 @@ public:
     void show();
     void hide();
     void exec();
+    void addText(std::string text);
+    void setBackgroundColor(int r, int g, int b, int a);
+    void setWindowIcon(std::string path);
     bool getVisibility();
+    void updateText();
+    bool isSizeFit(std::string str);
+    void setFont(const std::string& fontName, int size);
     int getSizeX();
     int getSizeY();
     Vector2i getSize();
     std::string getWindowTitle();
+    std::string getUpdateStack();
+    int getTextSize(std::string text);
+
 private:
+    void resizeEvent(QResizeEvent* event);
+    void keyEvent(QKeyEvent* event);
+    void initEvents();
+    void getAlignmentText(std::string str, std::string &labelText);
     QApplication application;
-    QLabel label;
+    MainWindow mainWindow;
+    CustomLabel label;
+    QFont font;
+    std::string currentLine;
+    std::vector<std::string> updateStack;
+    std::vector<std::string> textStack;
 };
 
 
