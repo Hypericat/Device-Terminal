@@ -12,7 +12,6 @@ void MainWindow::addKeyPressCallback(const std::function<void(QKeyEvent *)> &cal
     keyCallbacks.emplace_back(callback);
 }
 
-
 void MainWindow::resizeEvent(QResizeEvent *event) {
     QWidget::resizeEvent(event);
     for (const std::function<void(QResizeEvent *)>& callback : resizeCallbacks) {
@@ -27,5 +26,5 @@ void MainWindow::keyPressEvent(QKeyEvent *event) {
 }
 
 void MainWindow::closeEvent(QCloseEvent *event) {
-    throw std::system_error();
+    //throw std::system_error();
 }

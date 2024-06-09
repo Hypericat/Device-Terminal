@@ -6,15 +6,21 @@
 #define CMD_TERMINAL_HPP
 
 #include <iostream>
+#include <map>
 #include "Qt/WindowManager.hpp"
+#include "Commands/Command.hpp"
+#include "Commands/CommandLS.hpp"
 
 class Terminal {
 public:
     Terminal(WindowManager &window);
-    void run();
 private:
+    void stackReturn(std::string stackLine);
+    void initCommands();
+    void addCommand(Command* cmd);
+    std::map<std::string, Command*> commandMap;
     WindowManager &window;
-    void executeUpdate(std::string windowUpdate);
+    std::string path = "C:/";
 };
 
 

@@ -4,7 +4,7 @@
 
 #include "WindowManager.hpp"
 
-WindowManager::WindowManager(int &argc, char **argv) : application(argc, argv), label(5), updateStack(), textStack(), mainWindow(), currentLine() {
+WindowManager::WindowManager(int &argc, char **argv) : application(argc, argv), label(8), textStack(), mainWindow(), lastCurrentLine(getPointerString()) {
 
 }
 
@@ -16,13 +16,28 @@ void WindowManager::initWindow() {
     label.setAlignment(Qt::AlignTop);
     label.setMinimumSize(1, 1);
     label.setMargin(5);
+    setPointerString(">");
     mainWindow.setCentralWidget(&label);
     mainWindow.setMinimumSize(500, 250);
     initEvents();
     show();
+
+    //fully constructed now
+    label.setText(getPointerString().c_str());
 }
 
-void WindowManager::setWindowTitle(std::string windowTitle) {
+std::string WindowManager::getPointerString() {
+    return pointerString;
+}
+
+void WindowManager::setPointerString(std::string pointer) {
+    pointerString = std::move(pointer);
+
+    //this will remove whatever isn't the pointer string so gl ig
+    currentLine = pointerString;
+}
+
+void WindowManager::setWindowTitle(const std::string& windowTitle) {
     mainWindow.setWindowTitle(windowTitle.c_str());
 }
 
@@ -131,11 +146,8 @@ void WindowManager::getAlignmentText(std::string str, std::string &labelText) {
     }
 }
 
-std::string WindowManager::getUpdateStack() {
-    if (updateStack.empty()) return "";
-    std::string update = updateStack.at(0);
-    updateStack.erase(updateStack.begin());
-    return update;
+void WindowManager::setStackReturnMethod(std::function<void(std::string stackLine)> method) {
+    this->stackReturnMethod = std::move(method);
 }
 
 void WindowManager::setFont(const std::string& fontName, int size) {
@@ -147,6 +159,10 @@ void WindowManager::setFont(const std::string& fontName, int size) {
 }
 
 void WindowManager::addText(std::string text) {
+    textStack.emplace_back(text);
+    updateText();
+}
+void WindowManager::addText(std::string text, QColor color) {
     textStack.emplace_back(text);
     updateText();
 }
@@ -168,8 +184,51 @@ void WindowManager::resizeEvent(QResizeEvent* event) {
 
 void WindowManager::keyEvent(QKeyEvent* event) {
     if (event->key() == Qt::Key_Backspace) {
-        if (currentLine.empty()) return;
+        //don't erase the thingy character
+        if (currentLine.size() < getPointerString().length() + 1) return;
         currentLine.pop_back();
+        updateText();
+        return;
+    }
+    //for some reason qt:Key_Enter is 16777221 but the actual enter key is 16777220
+    if (event->key() == Qt::Key_Enter || event->key() == 16777220) {
+        std::string line = currentLine;
+        lastCurrentLine = getPointerString();
+        textStack.emplace_back(currentLine);
+        currentLine = getPointerString();
+        updateText();
+        lineReturnEvent(line);
+        return;
+    }
+    //key v
+    if (event->key() == 86 && event->text().toStdString() != "v" && event->text().toStdString() != "V") {
+        currentLine += FileUtils::getClipboardText();
+        updateText();
+        return;
+    }
+    if (event->key() == Qt::Key_Up) {
+        if (upIndex >= textStack.size()) return;
+        if (upIndex == 0) {
+            lastCurrentLine = currentLine;
+        }
+        upIndex ++;
+        if (upIndex < 1) upIndex = 1;
+        currentLine = textStack.at(textStack.size() - upIndex);
+        updateText();
+        return;
+    }
+    if (event->key() == Qt::Key_Down) {
+        if (textStack.empty()) {
+            return;
+        }
+        if (upIndex <= 1) {
+            currentLine = lastCurrentLine;
+            upIndex = 0;
+            updateText();
+            return;
+        }
+        upIndex --;
+        currentLine = textStack.at(textStack.size() - upIndex);
         updateText();
         return;
     }
@@ -182,3 +241,6 @@ void WindowManager::initEvents() {
     mainWindow.addKeyPressCallback([this](QKeyEvent *event) { keyEvent(event); });
 }
 
+void WindowManager::lineReturnEvent(std::string eventLine) {
+    stackReturnMethod(std::move(eventLine));
+}

@@ -19,7 +19,17 @@ set(SOURCE_FILES
         Qt/MainWindow.hpp
         Qt/CustomLabel.cpp
         Qt/CustomLabel.hpp
+        Utils/FileUtils.cpp
+        Utils/FileUtils.hpp
+        Terminal/Commands/Command.cpp
+        Terminal/Commands/Command.hpp
+        Utils/Util.cpp
+        Utils/Util.hpp
+        Terminal/Commands/CommandLS.cpp
+        Terminal/Commands/CommandLS.hpp
 )
 
-add_executable(Cmd WIN32 ${SOURCE_FILES})
+#add_executable(Cmd WIN32 ${SOURCE_FILES})
+add_executable(Cmd ${SOURCE_FILES})
+
 target_link_libraries(Cmd Qt6::Widgets)
