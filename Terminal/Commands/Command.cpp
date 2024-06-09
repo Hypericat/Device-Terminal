@@ -7,3 +7,7 @@
 Command::Command() {
 
 }
+
+void Command::execute(std::vector<std::string> &commandText, const std::string &path, WindowManager &windowManager) {
+
+}

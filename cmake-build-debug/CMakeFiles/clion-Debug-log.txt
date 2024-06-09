@@ -1,4 +1,4 @@
-"C:\Program Files\JetBrains\CLion 242.14146.22\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 242.14146.22/bin/ninja/win/x64/ninja.exe" -DCMAKE_PREFIX_PATH=/Qt-framework/6.7.1/mingw_64/lib/cmake -G Ninja -S C:\Users\Hypericats\Stuff\Coding\Cmd -B C:\Users\Hypericats\Stuff\Coding\Cmd\cmake-build-debug
+"C:\Program Files\JetBrains\CLion 242.14146.22\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 242.14146.22/bin/ninja/win/x64/ninja.exe" -DCMAKE_PREFIX_PATH=/Qt-framework/6.7.1/mingw_64/lib/cmake-static -G Ninja -S C:\Users\Hypericats\Stuff\Coding\Cmd -B C:\Users\Hypericats\Stuff\Coding\Cmd\cmake-build-debug
 -- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
 -- Configuring done (0.2s)
 -- Generating done (0.0s)

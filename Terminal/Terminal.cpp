@@ -4,12 +4,10 @@
 
 #include "Terminal.hpp"
 
-#include <utility>
-#include "Utils/Util.hpp"
 
 Terminal::Terminal(WindowManager &window) : window(window) {
     window.setStackReturnMethod([this](std::string stackLine) { stackReturn(std::move(stackLine)); });
-
+    window.path = this->path;
     initCommands();
 }
 
@@ -24,6 +22,8 @@ void Terminal::stackReturn(std::string stackLine) {
 
 void Terminal::initCommands() {
     addCommand(new CommandLS());
+    addCommand(new CommandClear());
+    addCommand(new CommandLoop([this](std::string str) { stackReturn(std::move(str)); }));
 }
 
 void Terminal::addCommand(Command* cmd) {

@@ -19,11 +19,12 @@ public:
     MainWindow(QWidget *parent = nullptr) : QMainWindow(parent) {}
     void addResizeCallback(const std::function<void(QResizeEvent*)>& callback);
     void addKeyPressCallback(const std::function<void(QKeyEvent*)>& callback);
-
+    std::function<void(std::string str, QColor color)> addTextMethod;
 protected:
     void resizeEvent(QResizeEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
     void closeEvent(QCloseEvent *event) override;
+
 private:
     std::vector<std::function<void(QResizeEvent*)>> resizeCallbacks;
     std::vector<std::function<void(QKeyEvent*)>> keyCallbacks;

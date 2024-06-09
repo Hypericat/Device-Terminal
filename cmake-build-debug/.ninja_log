@@ -1,11 +1,10 @@
 # ninja log v6
-3	272	7395922449683520	build.ninja	90ffdf08c2ee3f04
-10	2656	7395855180909784	CMakeFiles/Cmd.dir/main.cpp.obj	b9bf30315f42373d
+3	272	7396485811214904	build.ninja	90ffdf08c2ee3f04
 15	1528	7395855180964949	CMakeFiles/Cmd.dir/Utils/Vector2i.cpp.obj	8bb2f2983185880c
+10	2656	7395855180909784	CMakeFiles/Cmd.dir/main.cpp.obj	b9bf30315f42373d
 25	973	7395855181070068	CMakeFiles/Cmd.dir/Utils/FileUtils.cpp.obj	501d9eaa8ba8840b
 2781	2990	7395855208630884	Cmd.exe	71ee635294814442
-12	2781	7395855180934915	CMakeFiles/Cmd.dir/Qt/WindowManager.cpp.obj	d875fea189ee1d05
 20	1865	7395855181019988	CMakeFiles/Cmd.dir/Qt/MainWindow.cpp.obj	55d75a4de9e783
-13	1610	7395234223190191	CMakeFiles/Cmd.dir/Terminal/TerminalMain.cpp.obj	917ff869643ab074
+12	2781	7395855180934915	CMakeFiles/Cmd.dir/Qt/WindowManager.cpp.obj	d875fea189ee1d05
 18	2644	7395855180994945	CMakeFiles/Cmd.dir/Terminal/Terminal.cpp.obj	85832a498c439d38
-23	1826	7395855181040042	CMakeFiles/Cmd.dir/Qt/CustomLabel.cpp.obj	276e8b7f5a8d8ed8
+4	253	7396485811214904	build.ninja	90ffdf08c2ee3f04

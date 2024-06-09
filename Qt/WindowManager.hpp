@@ -7,14 +7,12 @@
 
 
 #include <QApplication>
-#include <QLabel>
+#include <QScrollBar>
 #include <map>
 #include <QPalette>
-#include <utility>
-#include <functional>
 #include <QClipboard>
 #include "MainWindow.hpp"
-#include "CustomLabel.hpp"
+#include "CustomTextEdit.hpp"
 #include "Utils/FileUtils.hpp"
 #include <string>
 #include <iostream>
@@ -34,19 +32,21 @@ public:
     void show();
     void hide();
     void exec();
-    void addText(std::string text);
     void addText(std::string text, QColor color);
     void setBackgroundColor(int r, int g, int b, int a);
+    void clear();
     void setWindowIcon(std::string path);
     bool getVisibility();
     void updateText();
     bool isSizeFit(std::string str);
     void setFont(const std::string& fontName, int size);
+    void moveCursorEnd();
     std::string getPointerString();
     int getSizeX();
     int getSizeY();
     Vector2i getSize();
     std::string getWindowTitle();
+    std::string path;
     void setStackReturnMethod(std::function<void(std::string stackLine)> method);
     int getTextSize(std::string text);
 
@@ -59,11 +59,11 @@ private:
     void setPointerString(std::string pointer);
     QApplication application;
     MainWindow mainWindow;
-    CustomLabel label;
+    CustomTextEdit textEdit;
     QFont font;
     std::string pointerString;
     std::string currentLine;
-    std::vector<std::string> textStack;
+    std::vector<std::string> commandStack;
     std::vector<std::pair<std::string, QColor>> coloredTextStack;
     std::function<void(std::string stackLine)> stackReturnMethod;
     int upIndex = 0;

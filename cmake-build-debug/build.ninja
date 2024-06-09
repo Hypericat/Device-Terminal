@@ -50,81 +50,97 @@ cmake_ninja_workdir = C$:/Users/Hypericats/Stuff/Coding/Cmd/cmake-build-debug/
 build cmake_object_order_depends_target_Cmd: phony || .
 
 build CMakeFiles/Cmd.dir/main.cpp.obj: CXX_COMPILER__Cmd_unscanned_Debug C$:/Users/Hypericats/Stuff/Coding/Cmd/main.cpp || cmake_object_order_depends_target_Cmd
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Cmd.dir\main.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  FLAGS = -g /MTd -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/Hypericats/Stuff/Coding/Cmd/cmake-build-debug -IC:/Users/Hypericats/Stuff/Coding/Cmd -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtWidgets -isystem C:/Qt-framework/6.7.1/mingw_64/include -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtCore -isystem C:/Qt-framework/6.7.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtGui
   OBJECT_DIR = CMakeFiles\Cmd.dir
   OBJECT_FILE_DIR = CMakeFiles\Cmd.dir
 
 build CMakeFiles/Cmd.dir/Qt/WindowManager.cpp.obj: CXX_COMPILER__Cmd_unscanned_Debug C$:/Users/Hypericats/Stuff/Coding/Cmd/Qt/WindowManager.cpp || cmake_object_order_depends_target_Cmd
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Cmd.dir\Qt\WindowManager.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  FLAGS = -g /MTd -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/Hypericats/Stuff/Coding/Cmd/cmake-build-debug -IC:/Users/Hypericats/Stuff/Coding/Cmd -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtWidgets -isystem C:/Qt-framework/6.7.1/mingw_64/include -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtCore -isystem C:/Qt-framework/6.7.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtGui
   OBJECT_DIR = CMakeFiles\Cmd.dir
   OBJECT_FILE_DIR = CMakeFiles\Cmd.dir\Qt
 
 build CMakeFiles/Cmd.dir/Utils/Vector2i.cpp.obj: CXX_COMPILER__Cmd_unscanned_Debug C$:/Users/Hypericats/Stuff/Coding/Cmd/Utils/Vector2i.cpp || cmake_object_order_depends_target_Cmd
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Cmd.dir\Utils\Vector2i.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  FLAGS = -g /MTd -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/Hypericats/Stuff/Coding/Cmd/cmake-build-debug -IC:/Users/Hypericats/Stuff/Coding/Cmd -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtWidgets -isystem C:/Qt-framework/6.7.1/mingw_64/include -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtCore -isystem C:/Qt-framework/6.7.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtGui
   OBJECT_DIR = CMakeFiles\Cmd.dir
   OBJECT_FILE_DIR = CMakeFiles\Cmd.dir\Utils
 
 build CMakeFiles/Cmd.dir/Terminal/Terminal.cpp.obj: CXX_COMPILER__Cmd_unscanned_Debug C$:/Users/Hypericats/Stuff/Coding/Cmd/Terminal/Terminal.cpp || cmake_object_order_depends_target_Cmd
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Cmd.dir\Terminal\Terminal.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  FLAGS = -g /MTd -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/Hypericats/Stuff/Coding/Cmd/cmake-build-debug -IC:/Users/Hypericats/Stuff/Coding/Cmd -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtWidgets -isystem C:/Qt-framework/6.7.1/mingw_64/include -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtCore -isystem C:/Qt-framework/6.7.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtGui
   OBJECT_DIR = CMakeFiles\Cmd.dir
   OBJECT_FILE_DIR = CMakeFiles\Cmd.dir\Terminal
 
 build CMakeFiles/Cmd.dir/Qt/MainWindow.cpp.obj: CXX_COMPILER__Cmd_unscanned_Debug C$:/Users/Hypericats/Stuff/Coding/Cmd/Qt/MainWindow.cpp || cmake_object_order_depends_target_Cmd
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Cmd.dir\Qt\MainWindow.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  FLAGS = -g /MTd -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/Hypericats/Stuff/Coding/Cmd/cmake-build-debug -IC:/Users/Hypericats/Stuff/Coding/Cmd -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtWidgets -isystem C:/Qt-framework/6.7.1/mingw_64/include -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtCore -isystem C:/Qt-framework/6.7.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtGui
   OBJECT_DIR = CMakeFiles\Cmd.dir
   OBJECT_FILE_DIR = CMakeFiles\Cmd.dir\Qt
 
-build CMakeFiles/Cmd.dir/Qt/CustomLabel.cpp.obj: CXX_COMPILER__Cmd_unscanned_Debug C$:/Users/Hypericats/Stuff/Coding/Cmd/Qt/CustomLabel.cpp || cmake_object_order_depends_target_Cmd
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
-  DEP_FILE = CMakeFiles\Cmd.dir\Qt\CustomLabel.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+build CMakeFiles/Cmd.dir/Qt/CustomTextEdit.cpp.obj: CXX_COMPILER__Cmd_unscanned_Debug C$:/Users/Hypericats/Stuff/Coding/Cmd/Qt/CustomTextEdit.cpp || cmake_object_order_depends_target_Cmd
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\Cmd.dir\Qt\CustomTextEdit.cpp.obj.d
+  FLAGS = -g /MTd -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/Hypericats/Stuff/Coding/Cmd/cmake-build-debug -IC:/Users/Hypericats/Stuff/Coding/Cmd -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtWidgets -isystem C:/Qt-framework/6.7.1/mingw_64/include -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtCore -isystem C:/Qt-framework/6.7.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtGui
   OBJECT_DIR = CMakeFiles\Cmd.dir
   OBJECT_FILE_DIR = CMakeFiles\Cmd.dir\Qt
 
 build CMakeFiles/Cmd.dir/Utils/FileUtils.cpp.obj: CXX_COMPILER__Cmd_unscanned_Debug C$:/Users/Hypericats/Stuff/Coding/Cmd/Utils/FileUtils.cpp || cmake_object_order_depends_target_Cmd
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Cmd.dir\Utils\FileUtils.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  FLAGS = -g /MTd -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/Hypericats/Stuff/Coding/Cmd/cmake-build-debug -IC:/Users/Hypericats/Stuff/Coding/Cmd -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtWidgets -isystem C:/Qt-framework/6.7.1/mingw_64/include -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtCore -isystem C:/Qt-framework/6.7.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtGui
   OBJECT_DIR = CMakeFiles\Cmd.dir
   OBJECT_FILE_DIR = CMakeFiles\Cmd.dir\Utils
 
 build CMakeFiles/Cmd.dir/Terminal/Commands/Command.cpp.obj: CXX_COMPILER__Cmd_unscanned_Debug C$:/Users/Hypericats/Stuff/Coding/Cmd/Terminal/Commands/Command.cpp || cmake_object_order_depends_target_Cmd
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Cmd.dir\Terminal\Commands\Command.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  FLAGS = -g /MTd -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/Hypericats/Stuff/Coding/Cmd/cmake-build-debug -IC:/Users/Hypericats/Stuff/Coding/Cmd -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtWidgets -isystem C:/Qt-framework/6.7.1/mingw_64/include -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtCore -isystem C:/Qt-framework/6.7.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtGui
   OBJECT_DIR = CMakeFiles\Cmd.dir
   OBJECT_FILE_DIR = CMakeFiles\Cmd.dir\Terminal\Commands
 
 build CMakeFiles/Cmd.dir/Utils/Util.cpp.obj: CXX_COMPILER__Cmd_unscanned_Debug C$:/Users/Hypericats/Stuff/Coding/Cmd/Utils/Util.cpp || cmake_object_order_depends_target_Cmd
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Cmd.dir\Utils\Util.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  FLAGS = -g /MTd -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/Hypericats/Stuff/Coding/Cmd/cmake-build-debug -IC:/Users/Hypericats/Stuff/Coding/Cmd -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtWidgets -isystem C:/Qt-framework/6.7.1/mingw_64/include -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtCore -isystem C:/Qt-framework/6.7.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtGui
   OBJECT_DIR = CMakeFiles\Cmd.dir
   OBJECT_FILE_DIR = CMakeFiles\Cmd.dir\Utils
 
 build CMakeFiles/Cmd.dir/Terminal/Commands/CommandLS.cpp.obj: CXX_COMPILER__Cmd_unscanned_Debug C$:/Users/Hypericats/Stuff/Coding/Cmd/Terminal/Commands/CommandLS.cpp || cmake_object_order_depends_target_Cmd
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Cmd.dir\Terminal\Commands\CommandLS.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  FLAGS = -g /MTd -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Hypericats/Stuff/Coding/Cmd/cmake-build-debug -IC:/Users/Hypericats/Stuff/Coding/Cmd -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtWidgets -isystem C:/Qt-framework/6.7.1/mingw_64/include -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtCore -isystem C:/Qt-framework/6.7.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\Cmd.dir
+  OBJECT_FILE_DIR = CMakeFiles\Cmd.dir\Terminal\Commands
+
+build CMakeFiles/Cmd.dir/Terminal/Commands/CommandLoop.cpp.obj: CXX_COMPILER__Cmd_unscanned_Debug C$:/Users/Hypericats/Stuff/Coding/Cmd/Terminal/Commands/CommandLoop.cpp || cmake_object_order_depends_target_Cmd
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\Cmd.dir\Terminal\Commands\CommandLoop.cpp.obj.d
+  FLAGS = -g /MTd -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Hypericats/Stuff/Coding/Cmd/cmake-build-debug -IC:/Users/Hypericats/Stuff/Coding/Cmd -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtWidgets -isystem C:/Qt-framework/6.7.1/mingw_64/include -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtCore -isystem C:/Qt-framework/6.7.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\Cmd.dir
+  OBJECT_FILE_DIR = CMakeFiles\Cmd.dir\Terminal\Commands
+
+build CMakeFiles/Cmd.dir/Terminal/Commands/CommandClear.cpp.obj: CXX_COMPILER__Cmd_unscanned_Debug C$:/Users/Hypericats/Stuff/Coding/Cmd/Terminal/Commands/CommandClear.cpp || cmake_object_order_depends_target_Cmd
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\Cmd.dir\Terminal\Commands\CommandClear.cpp.obj.d
+  FLAGS = -g /MTd -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/Hypericats/Stuff/Coding/Cmd/cmake-build-debug -IC:/Users/Hypericats/Stuff/Coding/Cmd -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtWidgets -isystem C:/Qt-framework/6.7.1/mingw_64/include -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtCore -isystem C:/Qt-framework/6.7.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt-framework/6.7.1/mingw_64/include/QtGui
   OBJECT_DIR = CMakeFiles\Cmd.dir
   OBJECT_FILE_DIR = CMakeFiles\Cmd.dir\Terminal\Commands
@@ -137,9 +153,10 @@ build CMakeFiles/Cmd.dir/Terminal/Commands/CommandLS.cpp.obj: CXX_COMPILER__Cmd_
 #############################################
 # Link the executable Cmd.exe
 
-build Cmd.exe: CXX_EXECUTABLE_LINKER__Cmd_Debug CMakeFiles/Cmd.dir/main.cpp.obj CMakeFiles/Cmd.dir/Qt/WindowManager.cpp.obj CMakeFiles/Cmd.dir/Utils/Vector2i.cpp.obj CMakeFiles/Cmd.dir/Terminal/Terminal.cpp.obj CMakeFiles/Cmd.dir/Qt/MainWindow.cpp.obj CMakeFiles/Cmd.dir/Qt/CustomLabel.cpp.obj CMakeFiles/Cmd.dir/Utils/FileUtils.cpp.obj CMakeFiles/Cmd.dir/Terminal/Commands/Command.cpp.obj CMakeFiles/Cmd.dir/Utils/Util.cpp.obj CMakeFiles/Cmd.dir/Terminal/Commands/CommandLS.cpp.obj | C$:/Qt-framework/6.7.1/mingw_64/lib/libQt6Widgets.a C$:/Qt-framework/6.7.1/mingw_64/lib/libQt6Gui.a C$:/Qt-framework/6.7.1/mingw_64/lib/libQt6Core.a
-  FLAGS = -g
-  LINK_LIBRARIES = C:/Qt-framework/6.7.1/mingw_64/lib/libQt6Widgets.a  C:/Qt-framework/6.7.1/mingw_64/lib/libQt6Gui.a  C:/Qt-framework/6.7.1/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+build Cmd.exe: CXX_EXECUTABLE_LINKER__Cmd_Debug CMakeFiles/Cmd.dir/main.cpp.obj CMakeFiles/Cmd.dir/Qt/WindowManager.cpp.obj CMakeFiles/Cmd.dir/Utils/Vector2i.cpp.obj CMakeFiles/Cmd.dir/Terminal/Terminal.cpp.obj CMakeFiles/Cmd.dir/Qt/MainWindow.cpp.obj CMakeFiles/Cmd.dir/Qt/CustomTextEdit.cpp.obj CMakeFiles/Cmd.dir/Utils/FileUtils.cpp.obj CMakeFiles/Cmd.dir/Terminal/Commands/Command.cpp.obj CMakeFiles/Cmd.dir/Utils/Util.cpp.obj CMakeFiles/Cmd.dir/Terminal/Commands/CommandLS.cpp.obj CMakeFiles/Cmd.dir/Terminal/Commands/CommandLoop.cpp.obj CMakeFiles/Cmd.dir/Terminal/Commands/CommandClear.cpp.obj | C$:/Qt-framework/6.7.1/mingw_64/lib/libQt6Widgets.a C$:/Qt-framework/6.7.1/mingw_64/lib/libQt6Gui.a C$:/Qt-framework/6.7.1/mingw_64/lib/libQt6Core.a C$:/Qt-framework/6.7.1/mingw_64/lib/libQt6EntryPoint.a
+  FLAGS = -g /MTd
+  LINK_FLAGS = -mwindows
+  LINK_LIBRARIES = C:/Qt-framework/6.7.1/mingw_64/lib/libQt6Widgets.a  C:/Qt-framework/6.7.1/mingw_64/lib/libQt6Gui.a  C:/Qt-framework/6.7.1/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  C:/Qt-framework/6.7.1/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Cmd.dir
   POST_BUILD = cd .
   PRE_LINK = cd .

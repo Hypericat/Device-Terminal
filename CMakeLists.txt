@@ -17,8 +17,8 @@ set(SOURCE_FILES
         Terminal/Terminal.hpp
         Qt/MainWindow.cpp
         Qt/MainWindow.hpp
-        Qt/CustomLabel.cpp
-        Qt/CustomLabel.hpp
+        Qt/CustomTextEdit.cpp
+        Qt/CustomTextEdit.hpp
         Utils/FileUtils.cpp
         Utils/FileUtils.hpp
         Terminal/Commands/Command.cpp
@@ -27,9 +27,13 @@ set(SOURCE_FILES
         Utils/Util.hpp
         Terminal/Commands/CommandLS.cpp
         Terminal/Commands/CommandLS.hpp
+        Terminal/Commands/CommandLoop.hpp
+        Terminal/Commands/CommandLoop.cpp
+        Terminal/Commands/CommandClear.cpp
+        Terminal/Commands/CommandClear.hpp
 )
 
-#add_executable(Cmd WIN32 ${SOURCE_FILES})
-add_executable(Cmd ${SOURCE_FILES})
+add_executable(Cmd WIN32 ${SOURCE_FILES})
+#add_executable(Cmd ${SOURCE_FILES})
 
 target_link_libraries(Cmd Qt6::Widgets)

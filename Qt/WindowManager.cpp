@@ -4,37 +4,38 @@
 
 #include "WindowManager.hpp"
 
-WindowManager::WindowManager(int &argc, char **argv) : application(argc, argv), label(8), textStack(), mainWindow(), lastCurrentLine(getPointerString()) {
+WindowManager::WindowManager(int &argc, char **argv) : application(argc, argv), textEdit(8), mainWindow(), lastCurrentLine(getPointerString()) {
 
 }
 
 void WindowManager::initWindow() {
     setWindowTitle("Device Terminal");
     resize(700, 400);
-    setBackgroundColor(0, 0, 0, 255);
+    setBackgroundColor(0, 255, 0, 255);
     setFont("Cascadia Code", -1);
-    label.setAlignment(Qt::AlignTop);
-    label.setMinimumSize(1, 1);
-    label.setMargin(5);
+    textEdit.setAlignment(Qt::AlignTop);
+    textEdit.setMinimumSize(1, 1);
+    textEdit.setReadOnly(false);
     setPointerString(">");
-    mainWindow.setCentralWidget(&label);
+    mainWindow.setCentralWidget(&textEdit);
     mainWindow.setMinimumSize(500, 250);
     initEvents();
     show();
 
     //fully constructed now
-    label.setText(getPointerString().c_str());
+    textEdit.setText(getPointerString().c_str());
+    moveCursorEnd();
 }
 
 std::string WindowManager::getPointerString() {
-    return pointerString;
+    return path + pointerString;
 }
 
 void WindowManager::setPointerString(std::string pointer) {
     pointerString = std::move(pointer);
 
     //this will remove whatever isn't the pointer string so gl ig
-    currentLine = pointerString;
+    currentLine = getPointerString();
 }
 
 void WindowManager::setWindowTitle(const std::string& windowTitle) {
@@ -42,11 +43,11 @@ void WindowManager::setWindowTitle(const std::string& windowTitle) {
 }
 
 void WindowManager::resizeX(int sizeX) {
-    mainWindow.resize(sizeX, label.size().height());
+    mainWindow.resize(sizeX, textEdit.size().height());
 }
 
 void WindowManager::resizeY(int sizeY) {
-    mainWindow.resize(label.size().width(), sizeY);
+    mainWindow.resize(textEdit.size().width(), sizeY);
 }
 
 void WindowManager::resize(int sizeX, int sizeY) {
@@ -96,12 +97,19 @@ std::string WindowManager::getWindowTitle() {
 
 void WindowManager::setBackgroundColor(int r, int g, int b, int a) {
     QPalette pal = QPalette();
-    pal.setColor(QPalette::Window, QColor(r, g, b, a));
+    pal.setColor(QPalette::Window, QColor(255, 255, 255, a));
 
 
     mainWindow.setAutoFillBackground(true);
     mainWindow.setPalette(pal);
     mainWindow.show();
+
+    pal.setColor(QPalette::Window, QColor(r, g, b, a));
+
+
+    textEdit.setAutoFillBackground(true);
+    textEdit.setPalette(pal);
+    textEdit.show();
 }
 
 void WindowManager::setWindowIcon(std::string path) {
@@ -110,12 +118,28 @@ void WindowManager::setWindowIcon(std::string path) {
 }
 
 void WindowManager::updateText() {
-    std::string labelText;
-    for (std::string str : textStack) {
-        getAlignmentText(str, labelText);
+    QScrollBar *scrollbar = textEdit.verticalScrollBar();
+    bool scrollbarAtBottom  = (scrollbar->value() >= (scrollbar->maximum() - 4));
+    int scrollbarPrevValue = scrollbar->value();
+    textEdit.clear();
+    QTextCursor cursor = textEdit.textCursor();
+    for (const auto &pair : coloredTextStack) {
+        QTextCharFormat format;
+        format.setForeground(pair.second);
+        cursor.setCharFormat(format);
+        cursor.insertText(QString::fromStdString(pair.first) + "\n");
     }
-    getAlignmentText(currentLine, labelText);
-    label.setText(labelText.c_str());
+
+    QTextCharFormat format;
+    format.setForeground(Qt::white);
+    cursor.setCharFormat(format);
+    cursor.insertText(QString::fromStdString(currentLine));
+
+    if (scrollbarAtBottom) {
+        scrollbar->setValue(scrollbar->maximum());
+    } else {
+        scrollbar->setValue(scrollbarPrevValue);
+    }
 }
 void WindowManager::getAlignmentText(std::string str, std::string &labelText) {
     if (isSizeFit(str)) {
@@ -158,12 +182,8 @@ void WindowManager::setFont(const std::string& fontName, int size) {
     QApplication::setFont(font);
 }
 
-void WindowManager::addText(std::string text) {
-    textStack.emplace_back(text);
-    updateText();
-}
 void WindowManager::addText(std::string text, QColor color) {
-    textStack.emplace_back(text);
+    coloredTextStack.emplace_back(std::move(text), color);
     updateText();
 }
 
@@ -183,18 +203,24 @@ void WindowManager::resizeEvent(QResizeEvent* event) {
 }
 
 void WindowManager::keyEvent(QKeyEvent* event) {
+    QTextCursor cursor = textEdit.textCursor();
+    int cursorPos = cursor.position();
+    int lineStart = textEdit.toPlainText().lastIndexOf('\n', cursorPos - 1) + 1;
+
     if (event->key() == Qt::Key_Backspace) {
-        //don't erase the thingy character
-        if (currentLine.size() < getPointerString().length() + 1) return;
-        currentLine.pop_back();
-        updateText();
+        if (cursorPos > lineStart + getPointerString().length()) {
+            cursor.deletePreviousChar();
+            currentLine.erase(cursorPos - 1, 1);
+            updateText();
+        }
         return;
     }
     //for some reason qt:Key_Enter is 16777221 but the actual enter key is 16777220
     if (event->key() == Qt::Key_Enter || event->key() == 16777220) {
+        commandStack.emplace_back(currentLine);
         std::string line = currentLine;
         lastCurrentLine = getPointerString();
-        textStack.emplace_back(currentLine);
+        coloredTextStack.emplace_back(currentLine, Qt::white);
         currentLine = getPointerString();
         updateText();
         lineReturnEvent(line);
@@ -202,23 +228,23 @@ void WindowManager::keyEvent(QKeyEvent* event) {
     }
     //key v
     if (event->key() == 86 && event->text().toStdString() != "v" && event->text().toStdString() != "V") {
-        currentLine += FileUtils::getClipboardText();
+        currentLine.insert(cursorPos - lineStart, FileUtils::getClipboardText());
         updateText();
         return;
     }
     if (event->key() == Qt::Key_Up) {
-        if (upIndex >= textStack.size()) return;
+        if (upIndex >= commandStack.size()) return;
         if (upIndex == 0) {
             lastCurrentLine = currentLine;
         }
         upIndex ++;
         if (upIndex < 1) upIndex = 1;
-        currentLine = textStack.at(textStack.size() - upIndex);
+        currentLine = commandStack.at(commandStack.size() - upIndex);
         updateText();
         return;
     }
     if (event->key() == Qt::Key_Down) {
-        if (textStack.empty()) {
+        if (commandStack.empty()) {
             return;
         }
         if (upIndex <= 1) {
@@ -228,19 +254,48 @@ void WindowManager::keyEvent(QKeyEvent* event) {
             return;
         }
         upIndex --;
-        currentLine = textStack.at(textStack.size() - upIndex);
+        currentLine = commandStack.at(commandStack.size() - upIndex);
         updateText();
         return;
     }
-    currentLine += event->text().toStdString();
-    updateText();
+    if (event->key() == Qt::Key_Left) {
+        if (cursorPos > lineStart + getPointerString().length()) {
+            cursor.setPosition(cursorPos - 1);
+            textEdit.setTextCursor(cursor);
+        }
+        return;
+    }
+    if (event->key() == Qt::Key_Right) {
+        cursor.setPosition(cursorPos + 1);
+        textEdit.setTextCursor(cursor);
+        return;
+    }
+    std::string text = event->text().toStdString();
+    if (!text.empty() && cursorPos >= lineStart + getPointerString().length()) {
+        currentLine.insert(cursorPos - lineStart, text);
+        updateText();
+        cursor.setPosition(cursorPos + 1);
+        textEdit.setTextCursor(cursor);
+    }
 }
 
 void WindowManager::initEvents() {
     mainWindow.addResizeCallback([this](QResizeEvent *event) { resizeEvent(event); });
     mainWindow.addKeyPressCallback([this](QKeyEvent *event) { keyEvent(event); });
+    textEdit.setKeyPressCallback([this](QKeyEvent *event) { keyEvent(event); });
 }
 
 void WindowManager::lineReturnEvent(std::string eventLine) {
     stackReturnMethod(std::move(eventLine));
+}
+
+void WindowManager::clear() {
+    coloredTextStack.clear();
+    updateText();
+}
+
+void WindowManager::moveCursorEnd() {
+    QTextCursor cursor = textEdit.textCursor();
+    cursor.movePosition(QTextCursor::End);
+    textEdit.setTextCursor(cursor);
 }

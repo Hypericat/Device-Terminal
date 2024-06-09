@@ -12,7 +12,7 @@
 class Command {
 public:
     Command();
-    virtual void execute(std::vector<std::string> &commandText, const std::string &path, WindowManager &windowManager) {};
+    virtual void execute(std::vector<std::string> &commandText, const std::string &path, WindowManager &windowManager);
     virtual std::vector<std::string> getStartCmd() { return {}; };
 
 private:

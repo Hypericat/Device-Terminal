@@ -7,13 +7,19 @@
 
 #include <iostream>
 #include <map>
+#include <thread>
+#include "Utils/Util.hpp"
 #include "Qt/WindowManager.hpp"
 #include "Commands/Command.hpp"
 #include "Commands/CommandLS.hpp"
+#include "Commands/CommandLoop.hpp"
+#include "Commands/CommandClear.hpp"
 
 class Terminal {
+
 public:
     Terminal(WindowManager &window);
+
 private:
     void stackReturn(std::string stackLine);
     void initCommands();

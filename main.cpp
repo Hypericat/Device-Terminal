@@ -5,15 +5,13 @@
 
 int main(int argc, char *argv[]) {
     WindowManager windowManager(argc, argv);
-    windowManager.initWindow();
     Terminal terminal(windowManager);
+    windowManager.initWindow();
     windowManager.exec();
     return 0;
 }
 //todo
-//loop execute file command
-//loop command
 
 
 //remember
-//cout crashes in relase mode
+//cout crashes in release mode
